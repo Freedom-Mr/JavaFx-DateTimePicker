@@ -30,17 +30,23 @@
 - 使用方式二（Stage实现）：
      ```
   public class DateTimePickerTest extends Application {
-     @Override
-     public void start(Stage primaryStage) throws Exception {
-        final VBox vBox = new VBox();
-        vBox.getChildren().add(new DateTimePicker());
-        final Scene scene = new Scene(vBox);
-        primaryStage.setScene(scene);
-        primaryStage.sizeToScene();
-        primaryStage.show();
-     }
-     public static void main(String[] args) {
-        launch(args);
-     }
+         @Override
+         public void start(Stage primaryStage) throws Exception {
+             final VBox vBox = new VBox();
+             vBox.getChildren().add(new DateTimePicker());
+             final Scene scene = new Scene(vBox);
+             primaryStage.setScene(scene);
+             primaryStage.sizeToScene();
+             primaryStage.show();
+         }
+         public static void main(String[] args) {
+             launch(args);
+         }
   }  
-```
+  ```
+
+
+## 参数说明
+  - clearTimeProperty() 清空已选时间；
+  - setShowLocalizedDateTime(Boolean show) 初始化是否显示当前时间，默认不显示
+  - dateTimeProperty() 时间获取与配置
