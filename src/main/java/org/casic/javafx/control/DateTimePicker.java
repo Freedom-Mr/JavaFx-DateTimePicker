@@ -30,7 +30,7 @@ public class DateTimePicker extends HBox implements Initializable {
     private ObjectProperty<LocalDateTime> dateTime;
     private final Popup popupContainer;
     private final DateTimePickerSelect dateTimePickerSelect;
-    private Boolean showLocalizedDateTime = false;
+    public Boolean showLocalizedDateTime = false;
     @FXML
     private TextField textField;
     @FXML
@@ -116,5 +116,13 @@ public class DateTimePicker extends HBox implements Initializable {
         if (popupContainer.isShowing()) {
             popupContainer.hide();
         }
+    }
+
+    public Boolean getShowLocalizedDateTime() {
+        return showLocalizedDateTime;
+    }
+
+    public void setShowLocalizedDateTime(Boolean show) {
+        this.showLocalizedDateTime = show;
     }
 }
