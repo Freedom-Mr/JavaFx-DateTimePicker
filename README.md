@@ -5,6 +5,18 @@
 
     ![image](static/1.gif)
 - 使用将工程打包后引用到自己项目中
+  
+  例如 Maven 引用
+  ```
+  <!-- DateTimePicker 自定义时间组件 -->
+  <dependency>
+     <groupId>org.casic.javafx</groupId>
+     <artifactId>JavaFx-DateTimePicker</artifactId>
+     <version>0.0.1</version>
+  </dependency>
+  
+  ```
+
 - 使用方式一（fxml引用）： 
 
     ```

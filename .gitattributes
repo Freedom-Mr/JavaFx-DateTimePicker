@@ -2,3 +2,5 @@
 * text=auto
 *.idea
 *target
+.idea
+target
