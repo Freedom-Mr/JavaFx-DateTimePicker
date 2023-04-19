@@ -20,7 +20,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/JavaFx-DateTimePicker" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -44,11 +44,12 @@
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "D:/my_project/github_project/javafx/JavaFx-DateTimePicker/src/main/resources/org/casic/javafx/control/DateTimePicker.fxml",
+    "last_opened_file_path": "D:/my_project/github_project/javafx/JavaFx-DateTimePicker/static",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.5126437",
@@ -58,6 +59,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\my_project\github_project\javafx\JavaFx-DateTimePicker\static" />
       <recent name="D:\my_project\wangzhiyou_project\javafx\JavaFx-DateTimePicker\src\main\resources\org\casic\javafx\control" />
       <recent name="D:\my_project\wangzhiyou_project\javafx\JavaFx-DateTimePicker\src\main\resources\org.casic.javafx.control" />
     </key>
@@ -103,7 +105,7 @@
       <option name="presentableId" value="Default" />
       <updated>1681812559724</updated>
       <workItem from="1681812560831" duration="26892000" />
-      <workItem from="1681893061397" duration="466000" />
+      <workItem from="1681893061397" duration="2682000" />
     </task>
     <servers />
   </component>
