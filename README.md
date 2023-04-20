@@ -32,12 +32,22 @@
   public class DateTimePickerTest extends Application {
          @Override
          public void start(Stage primaryStage) throws Exception {
+             //初始化一个时间选择器
+             DateTimePicker dateTimePicker = new DateTimePicker();
+
+             //设置选中时间 为 当前时间
+             dateTimePicker.setTimeProperty( LocalDateTime.now() );
+
+             //获取选中时间
+             dateTimePicker.dateTimeProperty().get();
+
+             //设置一个容器
              final VBox vBox = new VBox();
-             vBox.getChildren().add(new DateTimePicker());
+             vBox.getChildren().add( dateTimePicker );
              final Scene scene = new Scene(vBox);
              primaryStage.setScene(scene);
              primaryStage.sizeToScene();
-             primaryStage.show();
+             primaryStage.show();//显示
          }
          public static void main(String[] args) {
              launch(args);
@@ -49,4 +59,5 @@
 ## 参数说明
   - clearTimeProperty() 清空已选时间；
   - setShowLocalizedDateTime(Boolean show) 初始化是否显示当前时间，默认不显示
-  - dateTimeProperty() 时间获取与配置
+  - dateTimeProperty() 时间获取
+  - setTimeProperty(LocalDateTime localDateTime)  设置时间
