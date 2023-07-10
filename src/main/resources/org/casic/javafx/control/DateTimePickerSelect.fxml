@@ -26,6 +26,13 @@
         </children>
         <children>
             <FlowPane fx:id="flowPane" alignment="CENTER" vgap="3" hgap="29" prefWrapLength="260" minHeight="25" prefHeight="25">
+                <Label text="一" style="-fx-font-size: 9;-fx-font-family: Microsoft YaHei;"></Label>
+                <Label text="二" style="-fx-font-size: 9;-fx-font-family: Microsoft YaHei;"></Label>
+                <Label text="三" style="-fx-font-size: 9;-fx-font-family: Microsoft YaHei;"></Label>
+                <Label text="四" style="-fx-font-size: 9;-fx-font-family: Microsoft YaHei;"></Label>
+                <Label text="五" style="-fx-font-size: 9;-fx-font-family: Microsoft YaHei;"></Label>
+                <Label text="六" style="-fx-font-size: 9;-fx-font-family: Microsoft YaHei;"></Label>
+                <Label text="日" style="-fx-font-size: 9;-fx-font-family: Microsoft YaHei;"></Label>
             </FlowPane>
             <FlowPane fx:id="flow" alignment="CENTER" vgap="6" hgap="12" prefWrapLength="260" style="-fx-cursor: HAND;">
             </FlowPane>

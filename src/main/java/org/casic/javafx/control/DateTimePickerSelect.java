@@ -61,12 +61,12 @@ class DateTimePickerSelect extends VBox implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         dayList = new ArrayList<Button>();
-        String[] weeks = new String[]{"一","二","三","四","五","六","日"};
+        /*String[] weeks = new String[]{"一","二","三","四","五","六","日"};
         for (String week : weeks) {
             Label label = new Label(week);
             label.setStyle("-fx-font-size: 9;-fx-font-family: Microsoft YaHei;");
             flowPane.getChildren().add(label);
-        }
+        }*/
     }
     public DateTimePickerSelect(final DateTimePicker parentCont){
         this.dateTimePicker = parentCont;
