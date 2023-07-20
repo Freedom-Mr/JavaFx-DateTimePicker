@@ -61,7 +61,7 @@ class DateTimePickerSelect extends VBox implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         dayList = new ArrayList<Button>();
-        /*String[] weeks = new String[]{"Ò»","¶ş","Èı","ËÄ","Îå","Áù","ÈÕ"};
+        /*String[] weeks = new String[]{"ä¸€","äºŒ","ä¸‰","å››","äº”","å…­","æ—¥"};
         for (String week : weeks) {
             Label label = new Label(week);
             label.setStyle("-fx-font-size: 9;-fx-font-family: Microsoft YaHei;");
@@ -84,7 +84,7 @@ class DateTimePickerSelect extends VBox implements Initializable {
         if( this.dateTimePicker.dateTimeProperty()!=null ){
             this.cursorDateTime = this.dateTimePicker.dateTimeProperty().getValue();
         }
-        //Éú³ÉÈÕÆÚ²¿·Ö
+        //ç”Ÿæˆæ—¥æœŸéƒ¨åˆ†
         upDataCalendar(true);
     }
     public String strValue(int i){
@@ -97,7 +97,7 @@ class DateTimePickerSelect extends VBox implements Initializable {
         return res;
     }
     /**
-     * ÓÃÓÚ¸üĞÂÄêÔÂÕ¹Ê¾
+     * ç”¨äºæ›´æ–°å¹´æœˆå±•ç¤º
      */
     public void upDataLab(){
         if( calendar != null ){
@@ -106,7 +106,7 @@ class DateTimePickerSelect extends VBox implements Initializable {
         }
     }
     /**
-     * ¸üĞÂÈÕÆÚ²¿·ÖµÄÊı¾İ
+     * æ›´æ–°æ—¥æœŸéƒ¨åˆ†çš„æ•°æ®
      */
     public void upDataCalendar(boolean open){
         dayList.clear();
@@ -134,9 +134,9 @@ class DateTimePickerSelect extends VBox implements Initializable {
         int lastMouthDays = tmpCalendar.getActualMaximum(Calendar.DAY_OF_MONTH);
         tmpCalendar.add(Calendar.MONTH,1);
 
-        //System.out.println("±¾ÔÂÌìÊı£º"+mouthDays+"   ÉÏÔÂÌìÊı"+lastMouthDays);
+        //System.out.println("æœ¬æœˆå¤©æ•°ï¼š"+mouthDays+"   ä¸Šæœˆå¤©æ•°"+lastMouthDays);
         if (weekMouthFirstDay == 1){
-            //System.out.println("±¾ÔÂµÚÒ»ÌìÊÇÖÜÈÕ£¬Ç°ÃæÓĞ6Ìì");
+            //System.out.println("æœ¬æœˆç¬¬ä¸€å¤©æ˜¯å‘¨æ—¥ï¼Œå‰é¢æœ‰6å¤©");
             for (int i = lastMouthDays-5;i<=lastMouthDays;i++){
                 //dayList.add(i);
                 Button btn = new Button(strValue(i));
@@ -150,7 +150,7 @@ class DateTimePickerSelect extends VBox implements Initializable {
                 flow.getChildren().add(btn);
             }
         }else if (weekMouthFirstDay == 2){
-            //System.out.println("±¾ÔÂµÚÒ»ÌìÊÇÖÜÒ»£¬Ç°ÃæÃ»ÓĞ");
+            //System.out.println("æœ¬æœˆç¬¬ä¸€å¤©æ˜¯å‘¨ä¸€ï¼Œå‰é¢æ²¡æœ‰");
             for (int i = 1;i<=mouthDays;i++){
                 Button btn = new Button(strValue(i));
                 dayList.add(btn);
@@ -158,11 +158,12 @@ class DateTimePickerSelect extends VBox implements Initializable {
                 if ( this.cursorDateTime!=null && this.cursorDateTime.getDayOfMonth() == i && this.calendar!=null &&
                         this.calendar.get(Calendar.YEAR)==nowYear && this.calendar.get(Calendar.MONTH)+1==nowMonth ){
                     btn.setStyle("-fx-text-fill: white;-fx-background-color: #5b8cff;-fx-font-size: 10");
+                    this.calendar.set(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),this.cursorDateTime.getDayOfMonth());
                 }
                 flow.getChildren().add(btn);
             }
         }else{
-            //System.out.println("±¾ÔÂµÚÒ»Ìì²»ÊÇÖÜÈÕ£¬Ò²²»ÊÇÖÜÒ»");
+            //System.out.println("æœ¬æœˆç¬¬ä¸€å¤©ä¸æ˜¯å‘¨æ—¥ï¼Œä¹Ÿä¸æ˜¯å‘¨ä¸€");
             for (int i = lastMouthDays-weekMouthFirstDay+3;i<=lastMouthDays;i++){
                 //dayList.add(i);
                 Button btn = new Button(strValue(i));
@@ -176,6 +177,7 @@ class DateTimePickerSelect extends VBox implements Initializable {
                 if ( this.cursorDateTime!=null && this.cursorDateTime.getDayOfMonth() == i && this.calendar!=null &&
                         this.calendar.get(Calendar.YEAR)==nowYear && this.calendar.get(Calendar.MONTH)+1==nowMonth){
                     btn.setStyle("-fx-text-fill: white;-fx-background-color: #5b8cff;-fx-font-size: 10");
+                    this.calendar.set(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),this.cursorDateTime.getDayOfMonth());
                 }
                 flow.getChildren().add(btn);
             }
@@ -188,22 +190,22 @@ class DateTimePickerSelect extends VBox implements Initializable {
                 flow.getChildren().add(btn);
             }
         }
-        //Éú³ÉÊ±¼ä²¿·Ö
+        //ç”Ÿæˆæ—¶é—´éƒ¨åˆ†
         setTime();
-        //ÏÔÊ¾µ±Ç°ÄêÔÂ
+        //æ˜¾ç¤ºå½“å‰å¹´æœˆ
         upDataLab();
     }
     /**
-     * ÉèÖÃÉÏÔÂºÍÏÂÔÂÔÚ±¾ÔÂÏÔÊ¾µÄÈÕÆÚÑùÊ½£¬²¢ÉèÖÃÎª²»¿Éµã»÷
-     * @param btn  ÈÕÆÚ°´Å¥Button
+     * è®¾ç½®ä¸Šæœˆå’Œä¸‹æœˆåœ¨æœ¬æœˆæ˜¾ç¤ºçš„æ—¥æœŸæ ·å¼ï¼Œå¹¶è®¾ç½®ä¸ºä¸å¯ç‚¹å‡»
+     * @param btn  æ—¥æœŸæŒ‰é’®Button
      */
     public void setDisable(Button btn){
         btn.setDisable(true);
         btn.setStyle("-fx-text-fill: black;-fx-background-color: transparent;;-fx-font-size: 10");
     }
     /**
-     * ÉèÖÃ±¾ÔÂÈÕÆÚµÄµã»÷ÊÂ¼şºÍÑùÊ½£¬ÆäÖĞµã»÷Ê±¼äºó£¬×Ô¶¯¼ÇÂ¼Ê±¼ä
-     * @param btn  ÈÕÆÚ°´Å¥Button
+     * è®¾ç½®æœ¬æœˆæ—¥æœŸçš„ç‚¹å‡»äº‹ä»¶å’Œæ ·å¼ï¼Œå…¶ä¸­ç‚¹å‡»æ—¶é—´åï¼Œè‡ªåŠ¨è®°å½•æ—¶é—´
+     * @param btn  æ—¥æœŸæŒ‰é’®Button
      */
     public void setAble(Button btn){
         btn.setStyle("-fx-text-fill: black;-fx-background-color: #fff;-fx-font-size: 10");
@@ -263,7 +265,7 @@ class DateTimePickerSelect extends VBox implements Initializable {
 
 
     /**
-     * @Description: È·ÈÏ°´Å¥°´ÏÂÑùÊ½
+     * @Description: ç¡®è®¤æŒ‰é’®æŒ‰ä¸‹æ ·å¼
      * @Params
      * @Return
      * @Author wzy
@@ -274,7 +276,7 @@ class DateTimePickerSelect extends VBox implements Initializable {
         buttonOK.setStyle("-fx-background-color:#FFFFB9;-fx-font-size: 12;-fx-cursor: HAND;");
     }
     /**
-     * @Description: È·ÈÏ°´Å¥»Ö¸´ÑùÊ½
+     * @Description: ç¡®è®¤æŒ‰é’®æ¢å¤æ ·å¼
      * @Params
      * @Return
      * @Author wzy
@@ -285,7 +287,7 @@ class DateTimePickerSelect extends VBox implements Initializable {
         buttonOK.setStyle("-fx-background-color:#ACD6FF;-fx-font-size: 12;-fx-cursor: HAND;");
     }
     /**
-     * @Description: µã»÷È·ÈÏ°´Å¥ÊÂ¼ş´¦Àí
+     * @Description: ç‚¹å‡»ç¡®è®¤æŒ‰é’®äº‹ä»¶å¤„ç†
      * @Params
      * @Return
      * @Author wzy
@@ -299,12 +301,12 @@ class DateTimePickerSelect extends VBox implements Initializable {
             LocalDateTime localDateTime = LocalDateTime.ofInstant(calendar.toInstant(), ZoneId.systemDefault());
             this.dateTimePicker.setTimeProperty(localDateTime);
         }else {
-//            System.out.println("ÇëÏÈÑ¡ÔñÈÕÆÚ");
+//            System.out.println("è¯·å…ˆé€‰æ‹©æ—¥æœŸ");
         }
         this.dateTimePicker.hide();
     }
     /**
-     * @Description: ´Ë¿Ì °´Å¥°´ÏÂÑùÊ½
+     * @Description: æ­¤åˆ» æŒ‰é’®æŒ‰ä¸‹æ ·å¼
      * @Params
      * @Return
      * @Author wzy
@@ -315,7 +317,7 @@ class DateTimePickerSelect extends VBox implements Initializable {
         buttonOK.setStyle("-fx-background-color:#FFFFB9;-fx-font-size: 12;-fx-cursor: HAND;");
     }
     /**
-     * @Description: ´Ë¿Ì °´Å¥»Ö¸´ÑùÊ½
+     * @Description: æ­¤åˆ» æŒ‰é’®æ¢å¤æ ·å¼
      * @Params
      * @Return
      * @Author wzy
@@ -326,7 +328,7 @@ class DateTimePickerSelect extends VBox implements Initializable {
         buttonOK.setStyle("-fx-background-color:#e7c269;-fx-font-size: 12;-fx-cursor: HAND;");
     }
     /**
-     * @Description: µã»÷´Ë¿Ì °´Å¥ÊÂ¼ş´¦Àí
+     * @Description: ç‚¹å‡»æ­¤åˆ» æŒ‰é’®äº‹ä»¶å¤„ç†
      * @Params
      * @Return
      * @Author wzy
@@ -336,11 +338,17 @@ class DateTimePickerSelect extends VBox implements Initializable {
     private void buttonNowOnAction(){
         LocalDateTime localDateTime = LocalDateTime.now();
         calendar = Calendar.getInstance();
+        if (this.calendar!=null){
+            calendar.set(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH),
+                    Integer.parseInt(hour.getSelectionModel().getSelectedItem()),Integer.parseInt(minute.getSelectionModel().getSelectedItem()),Integer.parseInt(second.getSelectionModel().getSelectedItem()));
+        }else {
+//            System.out.println("è¯·å…ˆé€‰æ‹©æ—¥æœŸ");
+        }
         this.dateTimePicker.setTimeProperty(localDateTime);
         this.dateTimePicker.hide();
     }
     /**
-     * @Description: È¡Ïû°´Å¥°´ÏÂÑùÊ½
+     * @Description: å–æ¶ˆæŒ‰é’®æŒ‰ä¸‹æ ·å¼
      * @Params
      * @Return
      * @Author wzy
@@ -351,7 +359,7 @@ class DateTimePickerSelect extends VBox implements Initializable {
         buttonCancel.setStyle("-fx-background-color:#FFFFB9;-fx-font-size: 12;-fx-cursor: HAND;");
     }
     /**
-     * @Description: È¡Ïû°´Å¥»Ö¸´ÑùÊ½
+     * @Description: å–æ¶ˆæŒ‰é’®æ¢å¤æ ·å¼
      * @Params
      * @Return
      * @Author wzy
@@ -362,7 +370,7 @@ class DateTimePickerSelect extends VBox implements Initializable {
         buttonCancel.setStyle("-fx-background-color:#FFD2D2;-fx-font-size: 12;-fx-cursor: HAND;");
     }
     /**
-     * @Description: µã»÷È¡Ïû°´Å¥ÊÂ¼ş´¦Àí
+     * @Description: ç‚¹å‡»å–æ¶ˆæŒ‰é’®äº‹ä»¶å¤„ç†
      * @Params
      * @Return
      * @Author wzy
@@ -373,7 +381,7 @@ class DateTimePickerSelect extends VBox implements Initializable {
         this.dateTimePicker.hide();
     }
     /**
-     * @Description: ÖØÖÃ°´Å¥°´ÏÂÑùÊ½
+     * @Description: é‡ç½®æŒ‰é’®æŒ‰ä¸‹æ ·å¼
      * @Params
      * @Return
      * @Author wzy
@@ -384,7 +392,7 @@ class DateTimePickerSelect extends VBox implements Initializable {
         buttonReset.setStyle("-fx-background-color:#FFFFB9;-fx-font-size: 12;-fx-cursor: HAND;");
     }
     /**
-     * @Description: ÖØÖÃ°´Å¥»Ö¸´ÑùÊ½
+     * @Description: é‡ç½®æŒ‰é’®æ¢å¤æ ·å¼
      * @Params
      * @Return
      * @Author wzy
@@ -395,7 +403,7 @@ class DateTimePickerSelect extends VBox implements Initializable {
         buttonReset.setStyle("-fx-background-color:#96e561;-fx-font-size: 12;-fx-cursor: HAND;");
     }
     /**
-     * @Description: µã»÷ÖØÖÃ°´Å¥ÊÂ¼ş´¦Àí
+     * @Description: ç‚¹å‡»é‡ç½®æŒ‰é’®äº‹ä»¶å¤„ç†
      * @Params
      * @Return
      * @Author wzy
@@ -409,8 +417,8 @@ class DateTimePickerSelect extends VBox implements Initializable {
     }
 //    /**
 //     *
-//     * ÉèÖÃÄêÔÂ×óÓÒÑ¡Ôñ°´Å¥±»°´ÏÂÊ±ºÍµ¯ÆğÊ±µÄÑÕÉ«
-//     * @param btn  ÄêÔÂ×óÓÒÑ¡Ôñ°´Å¥Button
+//     * è®¾ç½®å¹´æœˆå·¦å³é€‰æ‹©æŒ‰é’®è¢«æŒ‰ä¸‹æ—¶å’Œå¼¹èµ·æ—¶çš„é¢œè‰²
+//     * @param btn  å¹´æœˆå·¦å³é€‰æ‹©æŒ‰é’®Button
 //     */
 //    public void btnMouthPress(Button btn){
 //        btn.setOnMousePressed(new EventHandler<MouseEvent>() {

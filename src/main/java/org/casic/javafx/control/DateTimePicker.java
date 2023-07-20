@@ -124,5 +124,9 @@ public class DateTimePicker extends HBox implements Initializable {
 
     public void setShowLocalizedDateTime(Boolean show) {
         this.showLocalizedDateTime = show;
+        if(show){
+            setTimeProperty(LocalDateTime.now());
+        }
+
     }
 }

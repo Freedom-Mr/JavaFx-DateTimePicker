@@ -12,16 +12,17 @@ public class DateTimePickerTest extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		//³õÊ¼»¯Ò»¸öÊ±¼äÑ¡ÔñÆ÷
+		//åˆå§‹åŒ–ä¸€ä¸ªæ—¶é—´é€‰æ‹©å™¨
 		DateTimePicker dateTimePicker = new DateTimePicker();
 
-		//ÉèÖÃÑ¡ÖĞÊ±¼ä Îª µ±Ç°Ê±¼ä
-		dateTimePicker.setTimeProperty( LocalDateTime.now() );
+		//è®¾ç½®é€‰ä¸­æ—¶é—´ ä¸º å½“å‰æ—¶é—´
+//		dateTimePicker.setTimeProperty( LocalDateTime.now() );
 
-		//»ñÈ¡Ñ¡ÖĞÊ±¼ä
-		dateTimePicker.dateTimeProperty().get();
+		//æ˜¯å¦é»˜è®¤æ˜¾ç¤ºå½“å‰æ—¶é—´
+		dateTimePicker.setShowLocalizedDateTime(false);
 
-		//ÉèÖÃÒ»¸öÈİÆ÷
+
+		//è®¾ç½®ä¸€ä¸ªå®¹å™¨
 		final VBox vBox = new VBox();
 		vBox.getChildren().add(dateTimePicker);
 		final Scene scene = new Scene(vBox);
@@ -29,6 +30,29 @@ public class DateTimePickerTest extends Application {
 		primaryStage.sizeToScene();
 		primaryStage.show();
 
+
+		//å¾ªç¯è·å–é€‰ä¸­æ—¶é—´-æ‰“å°
+		Thread thread = new Thread() {
+			@Override
+			public void run() {
+				while (true){
+					try {
+						if( dateTimePicker.dateTimeProperty()==null ){
+							System.out.println("æ²¡æœ‰é€‰ä¸­æ—¥æœŸï¼");
+						}else{
+							//è·å–é€‰ä¸­æ—¶é—´
+							LocalDateTime dateTime = dateTimePicker.dateTimeProperty().get();
+							System.out.println(dateTime.getYear()+"-"+dateTime.getMonthValue()+"-"+dateTime.getDayOfMonth()+" "+dateTime.getHour()+":"+dateTime.getMinute()+":"+dateTime.getSecond());
+						}
+						Thread.sleep(1000);
+					} catch (Exception e) {
+//						throw new RuntimeException(e);
+						continue;
+					}
+				}
+			}
+		};
+		thread.start();
 	}
 
 	public static void main(String[] args) {
