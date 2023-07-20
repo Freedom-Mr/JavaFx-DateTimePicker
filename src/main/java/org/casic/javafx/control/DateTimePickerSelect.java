@@ -158,6 +158,7 @@ class DateTimePickerSelect extends VBox implements Initializable {
                 if ( this.cursorDateTime!=null && this.cursorDateTime.getDayOfMonth() == i && this.calendar!=null &&
                         this.calendar.get(Calendar.YEAR)==nowYear && this.calendar.get(Calendar.MONTH)+1==nowMonth ){
                     btn.setStyle("-fx-text-fill: white;-fx-background-color: #5b8cff;-fx-font-size: 10");
+                    this.calendar.set(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),this.cursorDateTime.getDayOfMonth());
                 }
                 flow.getChildren().add(btn);
             }
@@ -176,6 +177,7 @@ class DateTimePickerSelect extends VBox implements Initializable {
                 if ( this.cursorDateTime!=null && this.cursorDateTime.getDayOfMonth() == i && this.calendar!=null &&
                         this.calendar.get(Calendar.YEAR)==nowYear && this.calendar.get(Calendar.MONTH)+1==nowMonth){
                     btn.setStyle("-fx-text-fill: white;-fx-background-color: #5b8cff;-fx-font-size: 10");
+                    this.calendar.set(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),this.cursorDateTime.getDayOfMonth());
                 }
                 flow.getChildren().add(btn);
             }
@@ -336,6 +338,12 @@ class DateTimePickerSelect extends VBox implements Initializable {
     private void buttonNowOnAction(){
         LocalDateTime localDateTime = LocalDateTime.now();
         calendar = Calendar.getInstance();
+        if (this.calendar!=null){
+            calendar.set(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH),
+                    Integer.parseInt(hour.getSelectionModel().getSelectedItem()),Integer.parseInt(minute.getSelectionModel().getSelectedItem()),Integer.parseInt(second.getSelectionModel().getSelectedItem()));
+        }else {
+//            System.out.println("请先选择日期");
+        }
         this.dateTimePicker.setTimeProperty(localDateTime);
         this.dateTimePicker.hide();
     }

@@ -16,10 +16,11 @@ public class DateTimePickerTest extends Application {
 		DateTimePicker dateTimePicker = new DateTimePicker();
 
 		//设置选中时间 为 当前时间
-		dateTimePicker.setTimeProperty( LocalDateTime.now() );
+//		dateTimePicker.setTimeProperty( LocalDateTime.now() );
 
-		//获取选中时间
-		dateTimePicker.dateTimeProperty().get();
+		//是否默认显示当前时间
+		dateTimePicker.setShowLocalizedDateTime(false);
+
 
 		//设置一个容器
 		final VBox vBox = new VBox();
@@ -29,6 +30,29 @@ public class DateTimePickerTest extends Application {
 		primaryStage.sizeToScene();
 		primaryStage.show();
 
+
+		//循环获取选中时间-打印
+		Thread thread = new Thread() {
+			@Override
+			public void run() {
+				while (true){
+					try {
+						if( dateTimePicker.dateTimeProperty()==null ){
+							System.out.println("没有选中日期！");
+						}else{
+							//获取选中时间
+							LocalDateTime dateTime = dateTimePicker.dateTimeProperty().get();
+							System.out.println(dateTime.getYear()+"-"+dateTime.getMonthValue()+"-"+dateTime.getDayOfMonth()+" "+dateTime.getHour()+":"+dateTime.getMinute()+":"+dateTime.getSecond());
+						}
+						Thread.sleep(1000);
+					} catch (Exception e) {
+//						throw new RuntimeException(e);
+						continue;
+					}
+				}
+			}
+		};
+		thread.start();
 	}
 
 	public static void main(String[] args) {

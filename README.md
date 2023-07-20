@@ -61,3 +61,15 @@
   - setShowLocalizedDateTime(Boolean show) 初始化是否显示当前时间，默认不显示
   - dateTimeProperty() 时间获取
   - setTimeProperty(LocalDateTime localDateTime)  设置时间
+
+# 一、更新记录
+- 【0.0.1】 2023-04-13
+
+  1、初始化提交
+
+
+- 【0.0.2】 2023-07-20
+
+  1、【解决点击此刻后，再次打开选择框直接点确认默认选择当前月份1号问题】
+
+
