@@ -247,16 +247,19 @@ class DateTimePickerSelect extends VBox implements Initializable {
      * @Date 2023/4/19 10:24
      **/
     private void setTime(){
-        for (int i = 1;i < 25;i++){
+        hour.getItems().clear();
+        for (int i = 0;i < 24;i++){
             hour.getItems().add(strValue(i));
         }
-        hour.getSelectionModel().select(calendar.get(Calendar.HOUR_OF_DAY)==0? 24 : calendar.get(Calendar.HOUR_OF_DAY)-1);
+        hour.getSelectionModel().select(calendar.get(Calendar.HOUR_OF_DAY)==0? 0 : calendar.get(Calendar.HOUR_OF_DAY));
 
+        minute.getItems().clear();
         for (int i = 0;i < 60;i++){
             minute.getItems().add(strValue(i));
         }
         minute.getSelectionModel().select(calendar.get(Calendar.MINUTE));
 
+        second.getItems().clear();
         for (int i = 0;i < 60;i++){
             second.getItems().add(strValue(i));
         }

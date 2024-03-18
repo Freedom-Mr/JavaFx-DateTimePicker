@@ -38,7 +38,7 @@ public class DateTimePickerTest extends Application {
 				while (true){
 					try {
 						if( dateTimePicker.dateTimeProperty()==null ){
-							System.out.println("没有选中日期！");
+							System.out.println("no check date！");
 						}else{
 							//获取选中时间
 							LocalDateTime dateTime = dateTimePicker.dateTimeProperty().get();
